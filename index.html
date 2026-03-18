@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-learning</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f7ff;
+    color:#1e293b;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    position: relative;
+    z-index: 2;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:600;
+}
+
+.logo span{
+    color:#6c63ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#64748b;
+    font-weight:500;
+    position:relative;
+}
+
+.nav-links a.active{
+    color:#1e293b;
+}
+
+.nav-links a.active::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:3px;
+    background:#6c63ff;
+    bottom:-8px;
+    left:0;
+    border-radius:5px;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:10px 25px;
+    border-radius:30px;
+    border:none;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.btn-signin{
+    background:linear-gradient(90deg,#6c63ff,#5a54e8);
+    color:white;
+}
+
+.btn-signup{
+    background:#e9e9ff;
+    color:#6c63ff;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    display:flex;
+    position:relative;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px 8%;
+    z-index: 4;
+    background-color: lavender;
+}
+
+.hero-left{
+    width:50%;
+}
+
+.discount{
+    color:#22c55e;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.hero-left h1{
+    font-size:52px;
+    font-weight:700;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero-left p{
+    color:#64748b;
+    margin-bottom:35px;
+}
+
+/* Search Box */
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:white;
+    border-radius:50px;
+    padding:8px 15px;
+    width:80%;
+    box-shadow:0 10px 40px rgba(0,0,0,0.05);
+    margin-bottom:30px;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:12px;
+    font-size:14px;
+}
+
+.search-btn{
+    background:#4f46e5;
+    border:none;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+.btn{
+    text-decoration: none ;
+}
+
+/* Features */
+
+.features{
+    display:flex;
+    gap:60px;
+    color:#334155;
+    font-size:12px;
+    margin-top: 20px;
+}
+
+.features span{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+}
+
+.features span::before{
+    content: "✔";
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ================= HERO RIGHT ================= */
+
+.hero-right{
+    width:45%;
+    position:relative;
+}
+
+.hero-card{
+    background:linear-gradient(135deg,#8ec5fc,#e0c3fc);
+    border-radius:40px;
+    padding:30px;
+    position:relative;
+}
+
+.hero-card img{
+    width:100%;
+    border-radius:25px;
+}
+
+/* Floating Cards */
+
+.floating{
+    position:absolute;
+    background:white;
+    padding:12px 18px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    font-size:14px;
+}
+
+.float-1{
+    top:40px;
+    left:-40px;
+}
+
+.float-2{
+    top:-20px;
+    right:20px;
+}
+
+/* ================= MAJOR COURSES ================= */
+
+.major-courses{
+    padding:80px 8%;
+    background:white;
+}
+
+.major-courses h2{
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:50px;
+    text-align:center;
+}
+
+.courses-container{
+    display:flex;
+    gap:50px;
+    align-items:center;
+}
+
+.courses-list{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.course-card-item{
+    background:white;
+    border:2px solid #e0e0e0;
+    border-radius:15px;
+    padding:20px;
+    cursor:pointer;
+    transition:0.3s;
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.course-card-item:hover{
+    border-color:#6c63ff;
+    box-shadow:0 10px 30px rgba(108,99,255,0.15);
+}
+
+.course-card-item.active{
+    background:linear-gradient(135deg,#6c63ff,#5a54e8);
+    color:white;
+    border-color:#6c63ff;
+}
+
+.course-card-item img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.course-card-item.active img{
+    opacity:0.9;
+}
+
+.course-card-info h3{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.course-card-info p{
+    font-size:14px;
+    opacity:0.7;
+}
+
+.course-card-item.active .course-card-info p{
+    opacity:0.9;
+}
+
+.course-details{
+    flex:1;
+    background:#f5f7ff;
+    padding:40px;
+    border-radius:15px;
+}
+
+.course-details h3{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.course-details p{
+    color:#64748b;
+    margin-bottom:25px;
+    line-height:1.6;
+    font-size:15px;
+}
+
+.course-details ul{
+    list-style:none;
+    margin-bottom:30px;
+}
+
+.course-details li{
+    padding:10px 0;
+    color:#64748b;
+    border-bottom:1px solid #e0e0e0;
+}
+
+.course-details li:before{
+    content:"✓ ";
+    color:#6c63ff;
+    font-weight:700;
+    margin-right:10px;
+}
+
+.course-cta{
+    background:linear-gradient(90deg,#6c63ff,#5a54e8);
+    color:white;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.course-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(108,99,255,0.3);
+}
+
+@media(max-width:992px){
+    .courses-container{
+        flex-direction:column;
+        gap:30px;
+    }
+
+    .major-courses h2{
+        font-size:28px;
+    }
+
+    .course-details{
+        padding:30px;
+    }
+
+    .course-details h3{
+        font-size:22px;
+    }
+}
+
+/* ================= TRUSTED ================= */
+
+.trusted{
+    text-align:center;
+    padding:60px 8%;
+    z-index: 2;
+    position:relative;
+}
+
+.trusted h3{
+    color:#475569;
+    margin-bottom:40px;
+}
+
+.logos{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
+    opacity:0.5;
+}
+
+.logos img{
+    height:28px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-left,
+    .hero-right{
+        width:100%;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .features{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .float-1,
+    .float-2{
+        display:none;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">E-learning<span>.</span></div>
+
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="mentor.html">Mentor</a></li>
+        <li><a href="group.html">Group</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="docs.html">Docs</a></li>
+    </ul>
+    <div class="nav-buttons" id="authArea">
+<a href="login1.html" class="btn btn-signin">Login</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+</div>
+   
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-left">
+        <div class="discount">✔ Get 30% off on first enroll</div>
+        <h1>Advance your engineering skills with us.</h1>
+        <p>Build skills with our courses and mentor from world-class companies.</p>
+
+        <div class="search-box">
+            <input type="text" id="homeSearch" placeholder="Search courses...">
+            <button onclick="goToCourses()">🔍</button>
+        </div>
+
+        <div class="features">
+            <span> Flexible</span>
+            <span> Learning path</span>
+            <span> Community</span>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="hero-card">
+            <img src="img2.avif"alt="student">
+        </div>
+
+        <div class="floating float-1">
+            50+ <br><small>Available courses</small>
+        </div>
+
+        <div class="floating float-2">
+            No of students 📊
+        </div>
+    </div>
+
+</section>
+
+<!-- MAJOR COURSES -->
+<section class="major-courses">
+    <h2>Our Major Courses</h2>
+    
+    <div class="courses-container">
+        <!-- Courses List -->
+        <div class="courses-list">
+            <div class="course-card-item active" onclick="selectCourse(0)">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=100&h=100&fit=crop" alt="Python">
+                <div class="course-card-info">
+                    <h3>Python Programming</h3>
+                    <p>Beginner to Advanced</p>
+                </div>
+            </div>
+
+            <div class="course-card-item" onclick="selectCourse(1)">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=100&h=100&fit=crop" alt="Web">
+                <div class="course-card-info">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS & JavaScript</p>
+                </div>
+            </div>
+
+            <div class="course-card-item" onclick="selectCourse(2)">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=100&h=100&fit=crop" alt="AI">
+                <div class="course-card-info">
+                    <h3>Artificial Intelligence</h3>
+                    <p>Machine Learning & AI</p>
+                </div>
+            </div>
+
+            <div class="course-card-item" onclick="selectCourse(3)">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=100&h=100&fit=crop" alt="Data Science">
+                <div class="course-card-info">
+                    <h3>Data Science</h3>
+                    <p>Analytics & Visualization</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Details -->
+        <div class="course-details" id="courseDetails">
+            <h3 id="detailTitle">Python Programming</h3>
+            <p id="detailDescription">Master Python programming from basics to advanced level. Learn object-oriented programming, data structures, and build real-world projects.</p>
+            
+            <ul id="benefitsList">
+                <li>Master OOP and data structures</li>
+                <li>Build real-world projects</li>
+                <li>Industry-standard practices</li>
+                <li>Career guidance and mentoring</li>
+                <li>Lifetime access and updates</li>
+            </ul>
+
+            <button class="course-cta" onclick="enrollCourse()">Enroll Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- TRUSTED -->
+<section class="trusted">
+    <h3>Trusted by companies of all sizes</h3>
+
+    <div class="logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg">
+        <img src="hubspot.png">
+        <img src="edx1.jpg">
+    </div>
+</section>
+
+<script>
+function goToCourses() {
+    const value = document.getElementById("homeSearch").value;
+    if(value.trim() !== ""){
+        window.location.href = "courses.html?search=" + value;
+    } else {
+        window.location.href = "courses.html";
+    }
+}
+
+
+const authArea = document.getElementById("authArea");
+const username = localStorage.getItem("username");
+
+if(username){
+
+    authArea.innerHTML = `
+        <span style="margin-right:15px; font-weight:500;">
+            👋 ${username}
+        </span>
+        <button onclick="logout()" class="btn btn-signin">Logout</button>
+    `;
+}
+
+function logout(){
+    localStorage.removeItem("username");
+    window.location.reload();
+}
+
+// ================= MAJOR COURSES DATA & FUNCTIONS =================
+
+const courseData = [
+    {
+        title: "Python Programming",
+        description: "Master Python programming from basics to advanced level. Learn object-oriented programming, data structures, and build real-world projects.",
+        benefits: [
+            "Master OOP and data structures",
+            "Build real-world projects",
+            "Industry-standard practices",
+            "Career guidance and mentoring",
+            "Lifetime access and updates"
+        ]
+    },
+    {
+        title: "Web Development",
+        description: "Learn modern web development with HTML, CSS, JavaScript, and frameworks like React. Build responsive and interactive websites from scratch.",
+        benefits: [
+            "Build responsive websites",
+            "Master HTML, CSS, JavaScript",
+            "Learn React framework",
+            "Portfolio projects included",
+            "Job placement assistance"
+        ]
+    },
+    {
+        title: "Artificial Intelligence",
+        description: "Dive into the world of AI and machine learning. Learn algorithms, neural networks, and build intelligent applications that solve real-world problems.",
+        benefits: [
+            "Understand ML algorithms",
+            "Build neural networks",
+            "Real-world AI applications",
+            "Expert-led training",
+            "Certification program"
+        ]
+    },
+    {
+        title: "Data Science",
+        description: "Become a data science expert. Learn data analysis, visualization, statistical modeling, and derive meaningful insights from data.",
+        benefits: [
+            "Master data analysis tools",
+            "Data visualization skills",
+            "Statistical modeling",
+            "Work on real datasets",
+            "Industry certifications"
+        ]
+    }
+];
+
+function selectCourse(index){
+    // Update active state
+    const items = document.querySelectorAll('.course-card-item');
+    items.forEach(item => item.classList.remove('active'));
+    items[index].classList.add('active');
+
+    // Update course details
+    document.getElementById('detailTitle').textContent = courseData[index].title;
+    document.getElementById('detailDescription').textContent = courseData[index].description;
+    
+    // Update benefits list
+    const benefitsList = document.getElementById('benefitsList');
+    benefitsList.innerHTML = '';
+    courseData[index].benefits.forEach(benefit => {
+        const li = document.createElement('li');
+        li.textContent = benefit;
+        benefitsList.appendChild(li);
+    });
+}
+
+function enrollCourse(){
+    const username = localStorage.getItem('username');
+    if(!username){
+        alert('Please login to enroll in a course');
+        window.location.href = 'login1.html';
+        return;
+    }
+    window.location.href = 'courses.html';
+}
+
+</script>
+
+</body>
+</html>

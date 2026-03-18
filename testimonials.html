@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Testimonials</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f7f9ff;
+color:#1e293b;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+}
+
+.logo span{
+color:#5b5bff;
+}
+
+.nav-links{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#64748b;
+font-weight:500;
+}
+
+.nav-links a.active{
+color:black;
+font-weight:600;
+}
+
+
+/* HEADER */
+
+.header{
+text-align:center;
+padding:60px 8% 20px;
+}
+
+.header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#64748b;
+}
+
+
+/* TESTIMONIAL GRID */
+
+.testimonials{
+
+padding:30px 8% 80px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+
+/* CARD */
+
+.testimonial-card{
+
+background:white;
+
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+
+transition:.3s;
+
+}
+
+.testimonial-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
+
+}
+
+
+/* PROFILE */
+
+.profile{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:15px;
+
+}
+
+.profile img{
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+.profile h3{
+
+font-size:18px;
+
+}
+
+
+/* ROLE */
+
+.role{
+
+font-size:13px;
+
+color:#5b5bff;
+
+}
+
+
+/* REVIEW TEXT */
+
+.review{
+
+color:#64748b;
+
+font-size:14px;
+
+margin-bottom:15px;
+
+}
+
+
+/* STARS */
+
+.stars{
+
+color:gold;
+
+font-size:18px;
+
+}
+
+.nav-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:10px 25px;
+    border-radius:30px;
+    border:none;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.btn-signin{
+    background:linear-gradient(90deg,#6c63ff,#5a54e8);
+    color:white;
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.nav-links{
+display:none;
+}
+
+}
+
+.btn{
+    text-decoration: none ;
+}
+
+/* WRITE TESTIMONIAL BUTTON */
+.write-testimonial-container{
+    text-align:center;
+    padding:30px 8% 40px;
+}
+
+.write-btn{
+    background:linear-gradient(90deg,#5b5bff,#4a4aee);
+    color:white;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.write-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(91,91,255,0.3);
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.modal-content{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:450px;
+    max-width:90%;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.modal-header{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:20px;
+    color:#1e293b;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:500;
+    margin-bottom:5px;
+    color:#1e293b;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:14px;
+    font-family:'Poppins',sans-serif;
+    box-sizing:border-box;
+}
+
+.form-group textarea{
+    resize:vertical;
+    min-height:100px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#5b5bff;
+    box-shadow:0 0 0 3px rgba(91,91,255,0.1);
+}
+
+.star-rating{
+    display:flex;
+    gap:10px;
+}
+
+.star{
+    font-size:24px;
+    cursor:pointer;
+    color:#ddd;
+    transition:0.2s;
+}
+
+.star:hover,
+.star.active{
+    color:gold;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.submit-btn{
+    flex:1;
+    padding:10px;
+    background:#5b5bff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    background:#4a4aee;
+}
+
+.close-btn{
+    flex:1;
+    padding:10px;
+    background:#e0e0e0;
+    color:#333;
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.close-btn:hover{
+    background:#d0d0d0;
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+E-learning<span>.</span>
+</div>
+
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="courses.html">Courses</a></li>
+
+<li><a href="mentor.html">Mentor</a></li>
+
+<li><a href="group.html">Group</a></li>
+
+<li><a href="#" class="active">Testimonials</a></li>
+
+<li><a href="docs.html">Docs</a></li>
+
+</ul>
+
+<div class="nav-buttons" id="authArea">
+<a href="login1.html" class="btn btn-signin">Login</a>
+<a href="signup.html" class="btn btn-signup">Sign Up</a>
+</div>
+
+</nav>
+
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>Student Testimonials</h1>
+
+<p>What our students say about us</p>
+
+</div>
+
+<!-- WRITE TESTIMONIAL BUTTON -->
+
+<div class="write-testimonial-container">
+
+<button class="write-btn" onclick="openTestimonialModal()"> Write Your Testimonial</button>
+
+</div>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials">
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/men/11.jpg">
+
+<div>
+
+<h3>Ravi Kumar</h3>
+
+<div class="role">
+Computer Science Student
+</div>
+
+</div>
+
+</div>
+
+<div class="review">
+
+This platform helped me improve my programming skills and build real projects.
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+</div>
+
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/women/21.jpg">
+
+<div>
+
+<h3>Priya Sharma</h3>
+
+<div class="role">
+Engineering Student
+</div>
+
+</div>
+
+</div>
+
+<div class="review">
+
+Mentors explain concepts very clearly. I learned web development easily.
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+</div>
+
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/men/33.jpg">
+
+<div>
+
+<h3>Arjun Reddy</h3>
+
+<div class="role">
+B.Tech Student
+</div>
+
+</div>
+
+</div>
+
+<div class="review">
+
+The courses are structured well and easy to understand.
+
+</div>
+
+<div class="stars">
+
+★★★★☆
+
+</div>
+
+</div>
+
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/women/45.jpg">
+
+<div>
+
+<h3>Sneha Patel</h3>
+
+<div class="role">
+IT Student
+</div>
+
+</div>
+
+</div>
+
+<div class="review">
+
+Learning groups helped me practice coding regularly.
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+</div>
+
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/men/51.jpg">
+
+<div>
+
+<h3>Vikram Singh</h3>
+
+<div class="role">
+Software Learner
+</div>
+
+</div>
+
+</div>
+
+<div class="review">
+
+Best platform to learn programming and improve skills.
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+</div>
+
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/women/60.jpg">
+
+<div>
+
+<h3>Pooja Reddy</h3>
+
+<div class="role">
+Student
+</div>
+
+</div>
+
+</div>
+
+<div class="review">
+
+Very easy to use and clean interface. Highly recommended.
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/men/71.jpg">
+
+<div>
+<h3>Rahul Verma</h3>
+<div class="role">Computer Engineering Student</div>
+</div>
+
+</div>
+
+<div class="review">
+The course structure is very clear and the projects helped me understand coding better.
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/women/72.jpg">
+
+<div>
+<h3>Anjali Gupta</h3>
+<div class="role">Web Development Student</div>
+</div>
+
+</div>
+
+<div class="review">
+I built my first website after joining the web development course here.
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/men/73.jpg">
+
+<div>
+<h3>Karthik Reddy</h3>
+<div class="role">B.Tech Student</div>
+</div>
+
+</div>
+
+<div class="review">
+The mentors explain difficult topics in a very simple way.
+</div>
+
+<div class="stars">
+★★★★☆
+</div>
+
+</div>
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/women/74.jpg">
+
+<div>
+<h3>Meera Nair</h3>
+<div class="role">Data Science Learner</div>
+</div>
+
+</div>
+
+<div class="review">
+The data science course helped me understand machine learning concepts clearly.
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/men/75.jpg">
+
+<div>
+<h3>Aditya Sharma</h3>
+<div class="role">Programming Enthusiast</div>
+</div>
+
+</div>
+
+<div class="review">
+Coding challenges and group discussions improved my problem-solving skills.
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+
+
+<div class="testimonial-card">
+
+<div class="profile">
+
+<img src="https://randomuser.me/api/portraits/women/76.jpg">
+
+<div>
+<h3>Neha Kapoor</h3>
+<div class="role">IT Student</div>
+</div>
+
+</div>
+
+<div class="review">
+This platform made learning programming fun and interactive.
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
+
+
+</section>
+
+<!-- TESTIMONIAL MODAL -->
+
+<div id="testimonialModal" class="modal">
+
+<div class="modal-content">
+
+<div class="modal-header">Share Your Experience</div>
+
+<form onsubmit="submitTestimonial(event)">
+
+<div class="form-group">
+<label>Your Name</label>
+<input type="text" id="userName" required>
+</div>
+
+<div class="form-group">
+<label>Your Role/Position</label>
+<input type="text" id="userRole" placeholder="e.g., Computer Science Student" required>
+</div>
+
+<div class="form-group">
+<label>Your Testimonial</label>
+<textarea id="userReview" placeholder="Share your experience with us..." required></textarea>
+</div>
+
+<div class="form-group">
+<label>Rating</label>
+<div class="star-rating" id="starRating"></div>
+</div>
+
+<div class="modal-buttons">
+<button type="submit" class="submit-btn">Submit Testimonial</button>
+<button type="button" class="close-btn" onclick="closeTestimonialModal()">Cancel</button>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+const authArea = document.getElementById("authArea");
+const username = localStorage.getItem("username");
+
+if(username){
+
+    authArea.innerHTML = `
+        <span style="margin-right:15px; font-weight:500;">
+            👋 ${username}
+        </span>
+    `;
+}
+
+function logout(){
+    localStorage.removeItem("username");
+    window.location.reload();
+}
+
+// ================= TESTIMONIAL SUBMISSION =================
+let selectedRating = 0;
+
+function initStarRating(){
+    const starRating = document.getElementById('starRating');
+    starRating.innerHTML = '';
+    for(let i = 1; i <= 5; i++){
+        const star = document.createElement('span');
+        star.className = 'star';
+        star.textContent = '★';
+        star.onclick = () => setRating(i);
+        starRating.appendChild(star);
+    }
+    updateStars();
+}
+
+function setRating(rating){
+    selectedRating = rating;
+    updateStars();
+}
+
+function updateStars(){
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+        if(index < selectedRating){
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+}
+
+function openTestimonialModal(){
+    const username = localStorage.getItem('username');
+    if(!username){
+        alert('Please login to write a testimonial');
+        window.location.href = 'login1.html';
+        return;
+    }
+    document.getElementById('testimonialModal').style.display = 'flex';
+    selectedRating = 0;
+    initStarRating();
+}
+
+function closeTestimonialModal(){
+    document.getElementById('testimonialModal').style.display = 'none';
+    document.getElementById('userName').value = '';
+    document.getElementById('userRole').value = '';
+    document.getElementById('userReview').value = '';
+    selectedRating = 0;
+}
+
+function submitTestimonial(event){
+    event.preventDefault();
+    
+    if(selectedRating === 0){
+        alert('Please select a rating');
+        return;
+    }
+
+    const testimonial = {
+        name: document.getElementById('userName').value,
+        role: document.getElementById('userRole').value,
+        review: document.getElementById('userReview').value,
+        rating: selectedRating,
+        image: 'https://randomuser.me/api/portraits/lego/1.jpg'
+    };
+
+    let userTestimonials = JSON.parse(localStorage.getItem('userTestimonials') || '[]');
+    userTestimonials.push(testimonial);
+    localStorage.setItem('userTestimonials', JSON.stringify(userTestimonials));
+
+    alert('Thank you for your testimonial!');
+    closeTestimonialModal();
+    loadUserTestimonials();
+}
+
+function loadUserTestimonials(){
+    const userTestimonials = JSON.parse(localStorage.getItem('userTestimonials') || '[]');
+    const testimonialsSection = document.querySelector('.testimonials');
+    
+    // Remove existing user testimonials
+    const existingUser = testimonialsSection.querySelectorAll('.user-testimonial');
+    existingUser.forEach(el => el.remove());
+    
+    // Add new user testimonials at the end
+    userTestimonials.forEach(testimonial => {
+        const stars = '★'.repeat(testimonial.rating) + '☆'.repeat(5 - testimonial.rating);
+        const card = `
+            <div class="testimonial-card user-testimonial">
+                <div class="profile">
+                    <img src="${testimonial.image}">
+                    <div>
+                        <h3>${testimonial.name}</h3>
+                        <div class="role">${testimonial.role}</div>
+                    </div>
+                </div>
+                <div class="review">${testimonial.review}</div>
+                <div class="stars">${stars}</div>
+            </div>
+        `;
+        testimonialsSection.innerHTML += card;
+    });
+}
+
+// Load user testimonials on page load
+window.addEventListener('load', loadUserTestimonials);
+
+</script>
+
+
+
+</body>
+
+</html>
